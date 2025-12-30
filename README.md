@@ -1,6 +1,6 @@
 # A Deep Unfolding Framework for Diffractive Snapshot Spectral Imaging
 
-## Data
+## Environment
 
 Pytorch 2.7.1+cu118 (> 2.0)
 lightning == 2.6.0.dev0 (> 2.0)
