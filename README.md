@@ -1,11 +1,13 @@
 # A Deep Unfolding Framework for Diffractive Snapshot Spectral Imaging
 
-## Environment
+## Dependencies
 
-Pytorch 2.7.1+cu118 (> 2.0)
-lightning == 2.6.0.dev0 (> 2.0)
-omegaconf
-jsonargparse[signatures]
+- Python
+- Pytorch==2.7.1+cu118 (> 2.0)
+- lightning==2.6.0.dev0 (> 2.0)
+- omegaconf
+- jsonargparse[signatures]
+- tensorboard
 
 ## Data
 
