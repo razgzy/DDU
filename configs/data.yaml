@@ -1,0 +1,31 @@
+data:
+  class_path: datasets.DataModule.SpectrumDataset
+  init_args:
+    train_dataset: 
+      - icvl
+      - vnirsr
+    crop_size: 
+      - 296
+      - 296
+    val_crop_size: 
+      - 912
+      - 896
+    test_crop_size: 
+      - 512
+      - 512
+    batch_size: 8
+    num_workers: 32
+    aug_metamer:
+      - -1
+      - 2
+    aug_illu: false
+    val_dataset:
+      - icvl_1
+      - icvl_0
+      - vnirsr_1
+      - vnirsr_0
+    test_dataset:
+      - icvl_1
+      - icvl_0
+      - vnirsr_1
+      - vnirsr_0

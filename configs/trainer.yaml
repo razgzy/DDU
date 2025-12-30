@@ -1,0 +1,58 @@
+trainer:
+  accelerator: gpu
+  strategy: auto
+  num_nodes: 1
+  precision: 16-mixed
+  callbacks:
+  - class_path: lightning_modules.log_manager.LogManager
+  - class_path: lightning.pytorch.callbacks.LearningRateMonitor
+    init_args:
+      logging_interval: epoch
+      log_momentum: false
+      log_weight_decay: false
+  - class_path: lightning.pytorch.callbacks.ModelCheckpoint
+    init_args:
+      dirpath: null
+      filename: epoch={epoch}-psnr={hp_metric:.4f}
+      monitor: hp_metric
+      verbose: false
+      save_last: true
+      save_top_k: 5
+      save_weights_only: false
+      mode: max
+      auto_insert_metric_name: false
+      every_n_train_steps: null
+      train_time_interval: null
+      every_n_epochs: 1
+      save_on_train_epoch_end: null
+      enable_version_counter: true
+  fast_dev_run: false
+  min_epochs: null
+  max_steps: -1
+  min_steps: null
+  max_time: null
+  limit_train_batches: null
+  limit_val_batches: null
+  limit_test_batches: null
+  limit_predict_batches: null
+  overfit_batches: 0.0
+  val_check_interval: null
+  check_val_every_n_epoch: 1
+  num_sanity_val_steps: 1
+  log_every_n_steps: 20
+  enable_checkpointing: null
+  enable_progress_bar: null
+  enable_model_summary: null
+  gradient_clip_val: null
+  gradient_clip_algorithm: null
+  deterministic: null
+  benchmark: null
+  inference_mode: true
+  use_distributed_sampler: true
+  profiler: null
+  detect_anomaly: false
+  barebones: false
+  plugins: null
+  sync_batchnorm: false
+  reload_dataloaders_every_n_epochs: 0
+  default_root_dir: null

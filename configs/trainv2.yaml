@@ -1,0 +1,49 @@
+# lightning.pytorch==2.0.9
+seed_everything: 0
+trainer:
+  devices:
+  - 3
+  logger:
+    class_path: lightning.pytorch.loggers.TensorBoardLogger
+    init_args:
+      save_dir: runs
+      name: DDU_MST_64_5stg
+      version: null
+      log_graph: false
+      default_hp_metric: true
+      prefix: ''
+      sub_dir: null
+  max_epochs: 30
+  accumulate_grad_batches: 4
+model:
+  class_path: models.NetworkModel.NetworkModel
+  init_args:
+    network:
+      class_path: models.networks.SFDUMTV2
+      init_args:
+        out_dim: 43
+        deblur:
+          name: mst
+          n_iters: 5
+          dim: 64
+          n_blocks: 2
+        reuse: false
+        cumsum: false
+        use_alpha: true
+        use_zeta: true
+        use_sigma: false
+        supervise_init: true
+        supervise_all: false
+    optimizer_dict:
+      lr: 4.0e-4
+      weight_decay: 1.0e-2
+    schedular_dict:
+      interval: step
+      eta_min: 1.0e-3
+    ssim_loss: true
+    ema: true
+    blind: false
+    gaussian_noise: 0.005
+    shot_noise_bit: 14
+    cyclic_conv: false
+    no_crop: false
