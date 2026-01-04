@@ -18,7 +18,7 @@ import numpy as np
 import logging
 import hdf5storage
 from matplotlib import pyplot as plt
-from models.networks.SFDUMTV2 import block_inverse
+from models.networks.DDU import block_inverse
 
 class NetworkModel(L.LightningModule):
     def __init__(self, network: torch.nn.Module, optimizer_dict: Dict, schedular_dict: Dict, accumulate_grad_batches = 1, ssim_loss=False, ema=False, crop_size=(128, 128), val_crop_size=(512, 512), test_crop_size=(512, 512), blind=False, half_blind=False, gaussian_noise=0.0025, shot_noise_bit=14, cyclic_conv=False, no_crop=False):

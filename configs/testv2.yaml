@@ -47,4 +47,4 @@ model:
     shot_noise_bit: 14
     cyclic_conv: false
     no_crop: false
-ckpt_path: runs/SFDUMTV2_MST_64_7stg_nosigma/version_5/checkpoints/last.ckpt
+ckpt_path: runs/DDU_MST_64_7stg_nosigma/version_5/checkpoints/last.ckpt
