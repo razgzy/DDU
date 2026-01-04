@@ -19,7 +19,7 @@ model:
   class_path: models.NetworkModel.NetworkModel
   init_args:
     network:
-      class_path: models.networks.SFDUMTV2
+      class_path: models.networks.DDU
       init_args:
         out_dim: 43
         deblur:

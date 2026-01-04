@@ -1,4 +1,4 @@
-from .SFDUMTV2 import SFDUMTV2
+from .DDU import DDU
 from .MST_Plus_Plus import MST_Plus_Plus, MST_Plus_Plus2
 from .MIRNetV2 import MIRNet_v2 as MIRNetV2
 from .MIRNetV2 import MIRNet_v2m as MIRNetV2m
@@ -9,8 +9,8 @@ def network_generator(method, in_dim, out_dim, deblur, dim, stage, reuse, use_al
         return MIRNetV2(in_dim, out_dim, dim, n_RRG=stage)
     elif method == 'mirnetv2m':
         return MIRNetV2m(in_dim, out_dim, dim, n_RRG=stage)
-    elif method == 'sfdumtv2':
-        return SFDUMTV2(out_dim, deblur, reuse=reuse, use_alpha=use_alpha, use_sigma=use_sigma)
+    elif method == 'ddu':
+        return DDU(out_dim, deblur, reuse=reuse, use_alpha=use_alpha, use_sigma=use_sigma)
     elif method == 'mst++':
         return MST_Plus_Plus(in_dim, out_dim, dim, stage)
     elif method == 'mst++2':
